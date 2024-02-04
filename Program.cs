@@ -4,11 +4,14 @@
     {
         static void Main()
         {
-            string Str = "x w x y x w";
-            int x = 0, w = 0, y = 0;
+            string Str = "ojfbhojhfbduohbu";
             for (int i = 0; i < Str.Length; i++) 
-            { if (Str[i] == 'x') { x++; } else if (Str[i] == 'w') { w++; } else if (Str[i] == 'y') { y++; } } // I could also use here Str.Contains() == true
-            Console.WriteLine($"X: {x}\nY: {y}\nW: {w}");
+            { 
+                int count = Str.Length - Str.Replace(Str[i].ToString(), "").Length;
+                Console.WriteLine($"Symb {Str[i]} - {count} times.");
+                Str = Str.Replace(Str[i].ToString(), "");
+                i--;
+            }
         }
     }
 }
